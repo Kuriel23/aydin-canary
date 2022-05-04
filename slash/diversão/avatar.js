@@ -45,7 +45,7 @@ module.exports = {
     const row = new discord.MessageActionRow().addComponents(
         new discord.MessageButton()
           .setEmoji("🖼️")
-          .setURL(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
+          .setURL(member.user.displayAvatarURL({ dynamic: true, size: 4096, format: "png"}))
           .setStyle("LINK")
       );
     const embed = new discord.MessageEmbed()
