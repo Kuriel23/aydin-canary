@@ -24,7 +24,7 @@
         "moment-timezone": "^0.5.33",
         "mongodb": "^4.5.0",
         "mongoose": "^6.0.2",
-        "node": "^16.13.1",
+        "node": "^17.0.0",
         "node-fetch": "^3.0.0",
         "parse-ms-2": "^1.0.0",
         "petitio": "^1.4.0",
