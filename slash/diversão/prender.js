@@ -13,6 +13,7 @@ module.exports = {
   ],
   category: "diversão",
   run: async (interaction, client) => {
+    interaction.reply({ content: "Gerando imagem..." })
     const member =
       interaction.options.getMember("usuário") || interaction.member;
     const img = await Canvas.loadImage(
@@ -34,6 +35,6 @@ module.exports = {
       canvas.toBuffer(),
       "prender.png"
     );
-    interaction.reply({ files: [attachment] });
+    interaction.editReply({ content: "Gerado com sucesso!", files: [attachment] });
   },
 };
