@@ -5,7 +5,7 @@ module.exports = {
   description: "Jogue contra um cafetão",
   category: "diversão",
   run: async (interaction, client) => {
-    interaction.deferReply();
+    await interaction.reply({ content: "Gerando jogo..." });
     let a = interaction.member;
 
     var numCardsPulled = 0;
@@ -127,12 +127,9 @@ module.exports = {
         .addField("Suas Cartas:", cardsMsg)
         .addField("Cartas do Dealer", dealerMsg)
         .addField(title, msg)
-        .setFooter({
-          text: `${interaction.user.tag}`,
-          iconURL: interaction.user.displayAvatarURL(),
-        });
+        .setImage("https://i.imgur.com/86T2sl8.png")
 
-      interaction.channel.send({ embeds: [gambleEmbed] });
+      interaction.editReply({ content: null, embeds: [gambleEmbed] });
     }
 
     async function endGame() {
@@ -223,11 +220,11 @@ module.exports = {
         })
         .then((message) => {
           message = message.first();
-          if (message.content === "h") {
+          if (message.content === "h" || message.content === "H") {
             hit();
             loop();
             return;
-          } else if (message.content === "s") {
+          } else if (message.content === "s" || message.content === "S") {
             stand();
             loop();
             return;

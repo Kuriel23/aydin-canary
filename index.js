@@ -20,7 +20,7 @@ const client = new discord.Client({
   },
 });
 
-//client.db = require("./database.js");
+client.db = require("./database.js");
 client.cor = "#27AE60";
 client.games = "https://animesonlinegames.com/";
 client.orion = "https://animesorionvip.com/";
