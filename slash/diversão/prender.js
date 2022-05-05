@@ -13,7 +13,7 @@ module.exports = {
   ],
   category: "diversão",
   run: async (interaction, client) => {
-    interaction.reply({ content: "Gerando imagem..." })
+    await interaction.reply({ content: "Gerando imagem..." })
     const member =
       interaction.options.getMember("usuário") || interaction.member;
     const img = await Canvas.loadImage(

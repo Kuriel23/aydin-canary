@@ -14,7 +14,7 @@ module.exports = {
   ],
   category: "diversão",
   run: async (interaction, client) => {
-    interaction.reply({ content: "Gerando imagem..." })
+    await interaction.reply({ content: "Gerando imagem..." })
     const canvas = Canvas.createCanvas(685, 494);
     const context = canvas.getContext("2d");
     const background = await Canvas.loadImage(

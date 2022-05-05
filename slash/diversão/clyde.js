@@ -17,6 +17,7 @@ module.exports = {
   ],
   category: "diversão",
   run: async (interaction, client) => {
+    await interaction.reply({ content: "Gerando imagem..." })
     let avatar = await Canvas.loadImage("https://i.imgur.com/TQmLGI9.png");
     let badge = await Canvas.loadImage("https://i.imgur.com/4yrOIfA.png");
     Canvas.registerFont("./fonts/WHITNEY_MEDIUM.otf", {
@@ -83,6 +84,6 @@ module.exports = {
       canvas.toBuffer(),
       "clyde.png"
     );
-    interaction.reply({ files: [attachment] });
+    interaction.editReply({ content: "Gerado com sucesso!", files: [attachment] });
   },
 };
