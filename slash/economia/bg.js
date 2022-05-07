@@ -10,8 +10,104 @@ module.exports = {
       type: 3,
       choices: [
         {
-          name: "Cidade de Noite",
+          name: "Cidade Noite",
           value: "cidade-noite",
+        },
+        {
+          name: "Garota Máscara",
+          value: "garota-mascara",
+        },
+        {
+          name: "2º Kizuki",
+          value: "akaza",
+        },
+        {
+          name: "Cyber Girl",
+          value: "cybergirl",
+        },
+        {
+          name: "Goku Black",
+          value: "goku-black",
+        },
+        {
+          name: "Bell Craner",
+          value: "bell-craner",
+        },
+        {
+          name: "Kanna Kamui",
+          value: "kanna",
+        },
+        {
+          name: "Satoru Gojo",
+          value: "satoru-gojo",
+        },
+        {
+          name: "Tanjiro",
+          value: "tanjiro-nezuko",
+        },
+        {
+          name: "Megumin",
+          value: "megumin",
+        },
+        {
+          name: "Shinobu",
+          value: "shinobu",
+        },
+        {
+          name: "Douma 1",
+          value: "douma1",
+        },
+        {
+          name: "Espaço com Dog",
+          value: "space",
+        },
+        {
+          name: "Nakiri Ayame",
+          value: "nakiri-ayame",
+        },
+        {
+          name: "3º Akaza",
+          value: "akazoficial",
+        },
+        {
+          name: "Kirito",
+          value: "saokirito",
+        },
+        {
+          name: "Hantengu",
+          value: "hantengu",
+        },
+        {
+          name: "Maki-san",
+          value: "makisan",
+        },
+        {
+          name: "Floresta Noturna",
+          value: "floresta",
+        },
+        {
+          name: "Rengoku",
+          value: "rengoku",
+        },
+        {
+          name: "Bart",
+          value: "bartsimpson",
+        },
+        {
+          name: "SS Blue",
+          value: "supersaiyajin",
+        },
+        {
+          name: "Raiden Shogun",
+          value: "raiden",
+        },
+        {
+          name: "Nosso Amor",
+          value: "nossoamor",
+        },
+        {
+          name: "Arcane",
+          value: "arcane",
         },
       ],
     },
@@ -262,7 +358,7 @@ module.exports = {
             return interaction.reply({ embeds: [embed] });
           }
         } else if (interaction.options.getString("equipar") === "saokirito") {
-        /* EXCLUSIVOS */
+          /* EXCLUSIVOS */
           if (doc.loja.saokirito === "Comprado.") {
             doc.equipado = "saokirito";
             doc.save();
@@ -538,6 +634,7 @@ module.exports = {
             .addField("» satoru-gojo:", doc.loja.satorugojo, true)
             .addField("» douma:", doc.loja.akaza, true)
             .addField("» cybergirl:", doc.loja.cybergirl, true)
+            .setImage("https://i.imgur.com/rOrPt2E.png")
             .setColor(client.cor);
           interaction.reply({ embeds: [ConfigEmbed] });
         }

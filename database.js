@@ -1,9 +1,10 @@
 const { connect, Schema, model } = require("mongoose");
+let logger = require("./Utils/logger")
 connect(
   `mongodb+srv://${process.env.db}:${process.env.db}@cluster0-ovyzb.gcp.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
-  .then(() => console.log("[MongoDB Gateway] | Online."))
+  .then(() => logger.log(`> ✅ • Carregado com sucesso [BANCO DE DADOS]`, "success"))
   .catch(() =>
     console.log("[ERRO] | Não foi possível se conectar ao banco de dados.")
   );

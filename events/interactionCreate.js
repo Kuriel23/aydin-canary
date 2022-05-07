@@ -27,4 +27,7 @@ module.exports = async(client, interaction) => {
 			await interaction.reply({ content: 'Ocorreu um estranho erro no meu terminal para este comando...', ephemeral: true });
 		}
 	}
+	if (interaction.isButton()) {
+		if (interaction.customId === "lavar") require("../interaction/buttons/lavar")(client, interaction)
+	}
 } 
