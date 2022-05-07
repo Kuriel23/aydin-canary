@@ -14,7 +14,7 @@ module.exports = {
   category: "economia",
   run: async (interaction, client) => {
     const membro =
-    interaction.options.getMember("usuário") || interaction.member;
+      interaction.options.getMember("usuário") || interaction.member;
     let erro = new discord.MessageEmbed()
       .setAuthor({ name: "» Tente Novamente", iconURL: client.warn })
       .setColor(client.cor);
@@ -22,7 +22,9 @@ module.exports = {
       const ec = await client.db.Users.findOne({ _id: membro.id });
       const canvas = Canvas.createCanvas(387, 246);
       const context = canvas.getContext("2d");
-
+      Canvas.registerFont("./fonts/antigonilight.ttf", {
+        family: "Antigoni",
+      });
       var x = 0;
       var y = 0;
       var width = 387;
@@ -65,35 +67,41 @@ module.exports = {
 
       // Usuário
 
-      context.font = `22px Impact`;
+      context.font = `22px 'Antigoni'`;
       context.fillStyle = "#ffffff";
+      context.textAlign = "start";
       context.fillText(`Proprietário:`, 10, 200);
 
-      context.font = `28px Impact`;
+      context.font = `28px 'Antigoni'`;
       context.fillStyle = "#000000";
+      context.textAlign = "start";
       context.fillText(`${membro.displayName.substring(0, 19)}`, 10, 230);
 
       // Dinheiro
 
-      context.font = `22px Impact`;
+      context.font = `22px 'Antigoni'`;
       context.fillStyle = "#ffffff";
+      context.textAlign = "start";
       context.fillText(`Animecoins:`, 10, 130);
 
-      context.font = `28px Impact`;
+      context.font = `28px 'Antigoni'`;
       context.fillStyle = "#000000";
+      context.textAlign = "start";
       context.fillText(`${ec.animecoins.toLocaleString("pt-BR")}`, 10, 160);
 
       // ID do Cartão
 
-      context.font = `28px Impact`;
+      context.font = `28px 'Antigoni'`;
       context.fillStyle = "#000000";
+      context.textAlign = "start";
       context.fillText(`${membro.id.match(/.{1,4}/g).join(" ")}`, 45, 80);
 
       // Nome do Banco
 
-      context.font = `43px Impact`;
+      context.font = `43px 'Antigoni'`;
       context.fillStyle = "#ffffff";
-      context.fillText(`Banco Animelândia`, 5, 45);
+      context.textAlign = "start";
+      context.fillText(`Banco Animelândia`, 30, 45);
 
       context.beginPath();
       context.arc(125, 125, 100, 0, Math.PI * 2, true);
@@ -104,17 +112,16 @@ module.exports = {
         canvas.toBuffer(),
         "banco.png"
       );
-        await interaction.reply({files: [attachment]});
+      await interaction.reply({ files: [attachment] });
       if (membro.id === interaction.member.id) {
         if (ec.dinsujo > 0) {
-          let botao = new discord.MessageActionRow()
-          .addComponents(
-          new discord.MessageButton()
-            .setLabel("Lavar")
-            .setStyle("PRIMARY")
-            .setEmoji("💰")
-            .setCustomId(`lavar`)
-            )
+          let botao = new discord.MessageActionRow().addComponents(
+            new discord.MessageButton()
+              .setLabel("Lavar")
+              .setStyle("PRIMARY")
+              .setEmoji("💰")
+              .setCustomId(`lavar`)
+          );
           let lavar = new discord.MessageEmbed()
             .setAuthor({
               name: `» Animecoins sujo: ${ec.dinsujo.toLocaleString("pt-BR")}`,
@@ -134,7 +141,7 @@ module.exports = {
         return interaction.reply({ embeds: [erro] });
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
       new client.db.Users({ _id: membro.id }).save();
       return interaction.reply({ embeds: [erro] });
     }
