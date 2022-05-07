@@ -28,6 +28,6 @@ module.exports = async(client, interaction) => {
 		}
 	}
 	if (interaction.isButton()) {
-		if (interaction.customId === "lavar") require("../interaction/buttons/lavar")(client, interaction)
+		if (interaction.customId === "lavar")  require("../interaction/buttons/lavar")(client, interaction)
 	}
 } 
