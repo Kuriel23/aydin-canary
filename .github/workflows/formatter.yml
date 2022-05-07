@@ -1,0 +1,2 @@
+- name: Run Prettier with reviewdog
+  uses: EPMatt/reviewdog-action-prettier@v1.0.0
