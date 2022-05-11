@@ -52,7 +52,8 @@ module.exports = {
               interaction.member.user.tag +
               " como seu(sua) companheiro(a) em matrimônio?"
           )
-          .setColor(client.cor);
+          .setColor(client.cor)
+          .setImage("https://i.imgur.com/UrVwk1z.png")
           let botao = new discord.MessageActionRow()
           .addComponents(
           new discord.MessageButton()

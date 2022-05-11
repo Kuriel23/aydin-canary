@@ -1,5 +1,4 @@
 const discord = require("discord.js");
-const ms = require("parse-ms-2");
 module.exports = {
   name: "coinflip",
   description:
@@ -117,6 +116,7 @@ module.exports = {
               .setDescription(
                 `${interaction.member.user.tag} e ${repUser} vocês estão prestes a apostar ${dinheiro2} animecoins, caso caia coroa ${interaction.member.user.tag} ganhará, caso seja cara ${repUser.user.tag} ganhará!\n\n O Lucro para o vencedor será de ${dinheiro2} animecoins. Boa sorte!\nClique em ✅ para aceitar a proposta ou ignore para rejeitar.`
               )
+              .setImage("https://i.imgur.com/NE3zBpX.png")
               .setColor(client.cor);
             let botao = new discord.MessageActionRow().addComponents(
               new discord.MessageButton()

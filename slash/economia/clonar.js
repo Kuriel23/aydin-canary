@@ -92,6 +92,7 @@ module.exports = {
                       name: `» ${interaction.member.user.tag} clonou um cartão com ${dinheiro2} de ${transferido.user.tag}! Dinheiro transferido para o banco do utilizador!`,
                       iconURL: "https://i.imgur.com/gWlUNds.png",
                     })
+                    .setImage("https://i.imgur.com/k1d7XkN.png")
                     .setColor(client.cor);
                   interaction.editReply({ content: null, embeds: [clonou] });
                 }

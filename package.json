@@ -28,6 +28,7 @@
         "mongoose": "^6.0.2",
         "node": "^16.13.1",
         "node-fetch": "^3.0.0",
+        "node-schedule": "^2.1.0",
         "parse-ms-2": "^1.0.0",
         "petitio": "^1.4.0",
         "rss-parser": "^3.12.0",

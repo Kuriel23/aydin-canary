@@ -23,6 +23,7 @@ module.exports = async (client, interaction) => {
         )} de ${doc.dinsujo.toLocaleString("pt-BR")}!`,
         iconURL: "https://i.imgur.com/pAWMBGj.png",
       })
+      .setImage("https://i.imgur.com/rbN25k9.png")
       .setColor(client.cor);
     interaction.channel.send({ embeds: [lavou], ephemeral: true });
     doc.animecoins += lavagem;
