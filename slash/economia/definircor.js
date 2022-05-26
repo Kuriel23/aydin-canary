@@ -53,6 +53,7 @@ module.exports = {
       .setDescription(
         `Este comando oferece a possibilidade da pessoa definir a cor á sua escolha em seu perfil ou banco.\n\nVocê pode usar a ferramenta: [Cor Hexa](https://corhexa.com/seletor-de-cores) para escolher a sua cor que mais se adequar.`
       )
+      .setImage("https://i.imgur.com/ljBC1Kz.png")
       .setColor(client.cor);
 
     if (!hex.startsWith("#"))

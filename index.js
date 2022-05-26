@@ -38,6 +38,8 @@ client.slash = new discord.Collection();
 client.request = new (require("rss-parser"))();
 client.loja = require("./loja.json");
 client.catToken = process.env.catToken;
+const Levels = require('discord-xp')
+Levels.setURL(`mongodb+srv://${process.env.db}:${process.env.db}@cluster0-ovyzb.gcp.mongodb.net/test?retryWrites=true&w=majority`)
 
 client.eventoativo = false; // true para ativar, false para desativar
 client.quantiacandy = 5; // Quantia que é doada

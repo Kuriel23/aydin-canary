@@ -3,7 +3,7 @@ module.exports = async (client) => {
     type: "WATCHING",
   });
   let activities = [
-		`a?ajuda para ajuda`,
+		`Prefixo: /`,
 		`animesonlinegames.com`,
 		`animesorionvip.com`,
 		`myanimelist.vip`,
@@ -18,4 +18,5 @@ module.exports = async (client) => {
       type: "WATCHING",
     });
   }, 15000);
+  client.logger.log(`> ✅ • Carregado com sucesso [DISCORD]`, "success")
 };
