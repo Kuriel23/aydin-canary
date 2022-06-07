@@ -43,6 +43,7 @@ module.exports = {
             let respostas = Math.floor(Math.random() * (50000 - 500)) + 1;
             let RaspadaEmbed = new discord.MessageEmbed()
               .setTitle("<:uhum:969981594062442536> » 5 Roletas")
+              .setImage("https://i.imgur.com/LISzS1m.png")
               .setDescription(
                 `As 5 roletas deram lucro de: ${
                   interaction.member.roles.cache.has("654435562295656478")
@@ -79,6 +80,7 @@ module.exports = {
                     : respostas
                 }`
               )
+              .setImage("https://i.imgur.com/6IXgqpN.png")
               .setColor(client.cor);
             interaction.reply({ embeds: [RaspadaEmbed], ephemeral: true });
             doc.animecoins -= 4000;

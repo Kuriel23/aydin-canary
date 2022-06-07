@@ -63,6 +63,7 @@ module.exports = {
                 } Moedas no daily.`,
                 iconURL: client.ok,
               })
+              .setImage("https://i.imgur.com/fj35UPa.png")
               .setColor(client.cor);
             interaction.reply({ embeds: [resgatou] })
             doc.save();

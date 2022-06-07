@@ -35,6 +35,7 @@ module.exports = {
           if (err) console.log(err);
           let embed = new discord.MessageEmbed()
             .setTitle("🏆 » TOP 10 ANIMECOINS")
+            .setImage("https://i.imgur.com/NgS5Jhe.png")
             .setColor(client.cor);
           if (res.length === 0) {
             embed.addField(
@@ -88,6 +89,7 @@ module.exports = {
           if (err) console.log(err);
           let embed = new discord.MessageEmbed()
             .setTitle("🏆 » TOP 10 REP")
+            .setImage("https://i.imgur.com/NgS5Jhe.png")
             .setColor(client.cor);
           if (res.length === 0) {
             embed.addField(
@@ -135,6 +137,7 @@ module.exports = {
           if (err) console.log(err);
           let embed = new discord.MessageEmbed()
             .setTitle("🏆 » TOP 10 XP")
+            .setImage("https://i.imgur.com/NgS5Jhe.png")
             .setColor(client.cor);
           if (res.length === 0) {
             embed.addField(

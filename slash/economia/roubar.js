@@ -50,6 +50,7 @@ module.exports = {
             function embed(title, icon) {
               return new discord.MessageEmbed()
                 .setAuthor({ name: title, iconURL: icon })
+                .setImage("https://i.imgur.com/oruvrpb.png")
                 .setColor(client.cor);
             }
             if (result === "Restaurante") {

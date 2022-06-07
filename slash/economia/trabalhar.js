@@ -28,6 +28,7 @@ module.exports = {
               name: `» Você resgatou suas ${salario} animecoins no trabalho.`,
               iconURL: "https://i.imgur.com/3y540mY.png",
             })
+            .setImage("https://i.imgur.com/2Zm6WZz.png")
             .setColor(client.cor);
           interaction.reply({ embeds: [trabalho] });
           doc.save();
