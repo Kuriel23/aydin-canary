@@ -1,109 +1,109 @@
-const discord = require("discord.js");
-const ms = require("parse-ms-2");
+const discord = require('discord.js')
+const ms = require('parse-ms-2')
 module.exports = {
-  name: "clonar",
+  name: 'clonar',
   description:
-    "Clone o dinheiro do cartão de algum usuário. | Cooldown: 3 dias",
+    'Clone o dinheiro do cartão de algum usuário. | Cooldown: 3 dias',
   options: [
     {
-      name: "usuário",
-      description: "Qual usuário?",
+      name: 'usuário',
+      description: 'Qual usuário?',
       type: 6,
       required: true
-    },
+    }
   ],
-  category: "economia",
+  category: 'economia',
   run: async (interaction, client) => {
     const transferido =
-      interaction.options.getMember("usuário");
+      interaction.options.getMember('usuário')
 
     if (transferido.bot) {
-      let bot = new discord.MessageEmbed()
+      const bot = new discord.MessageEmbed()
         .setAuthor({
-          name: `» Bots não fazem parte da economia.`,
-          iconURL: client.err,
+          name: '» Bots não fazem parte da economia.',
+          iconURL: client.err
         })
-        .setColor(client.cor);
-      return interaction.reply({ embeds: [bot] });
+        .setColor(client.cor)
+      return interaction.reply({ embeds: [bot] })
     }
     if (transferido.id == interaction.member.id) {
-      let burro = new discord.MessageEmbed()
+      const burro = new discord.MessageEmbed()
         .setAuthor({
-          name: `» Você quer clonar você próprio?`,
-          iconURL: client.err,
+          name: '» Você quer clonar você próprio?',
+          iconURL: client.err
         })
-        .setColor(client.cor);
-      return interaction.reply({ embeds: [burro] });
+        .setColor(client.cor)
+      return interaction.reply({ embeds: [burro] })
     }
-    let registro = new discord.MessageEmbed()
-      .setAuthor({ name: `» Tente Novamente.`, iconURL: client.err })
-      .setColor(client.cor);
-    let dinheiro2 = Math.floor(Math.random() * (250000 - 0)) + 1;
-    await interaction.reply({ content: "Pesquisando contéudo..." });
+    const registro = new discord.MessageEmbed()
+      .setAuthor({ name: '» Tente Novamente.', iconURL: client.err })
+      .setColor(client.cor)
+    const dinheiro2 = Math.floor(Math.random() * (250000 - 0)) + 1
+    await interaction.reply({ content: 'Pesquisando contéudo...' })
     client.db.Users.findOne(
       { _id: interaction.member.id },
       function (err, fic) {
         if (!fic) {
           const docToSave = new client.db.Users({
-            _id: interaction.member.id,
-          });
-          docToSave.save();
-          return interaction.editReply({ content: null, embeds: [registro] });
+            _id: interaction.member.id
+          })
+          docToSave.save()
+          return interaction.editReply({ content: null, embeds: [registro] })
         }
         if (fic) {
-          const delayTime = 259200000;
+          const delayTime = 259200000
           if (delayTime - (Date.now() - fic.clonaCooldown) > 0) {
-            const _time = ms(delayTime - (Date.now() - fic.clonaCooldown));
-            let cooldown = new discord.MessageEmbed()
+            const _time = ms(delayTime - (Date.now() - fic.clonaCooldown))
+            const cooldown = new discord.MessageEmbed()
               .setAuthor({
                 name: `» Espere: ${_time.days}d, ${_time.hours}h, ${_time.minutes}m, e ${_time.seconds}s para clonar mais cartões.`,
-                iconURL: client.err,
+                iconURL: client.err
               })
-              .setColor(client.cor);
-            return interaction.editReply({ content: null, embeds: [cooldown] });
+              .setColor(client.cor)
+            return interaction.editReply({ content: null, embeds: [cooldown] })
           } else {
             client.db.Users.findOne(
               { _id: transferido.id },
               function (err, doc) {
                 if (!doc) {
-                  new client.db.Users({ _id: transferido.id }).save();
+                  new client.db.Users({ _id: transferido.id }).save()
                   return interaction.editReply({
                     content: null,
-                    embeds: [registro],
-                  });
+                    embeds: [registro]
+                  })
                 }
                 if (doc) {
                   if (doc.animecoins < 250000) {
-                    let semdindin = new discord.MessageEmbed()
+                    const semdindin = new discord.MessageEmbed()
                       .setAuthor({
-                        name: `» O usuário deve ter 250 mil animecoins.`,
-                        iconURL: client.warn,
+                        name: '» O usuário deve ter 250 mil animecoins.',
+                        iconURL: client.warn
                       })
-                      .setColor(client.cor);
+                      .setColor(client.cor)
                     return interaction.editReply({
                       content: null,
-                      embeds: [semdindin],
-                    });
+                      embeds: [semdindin]
+                    })
                   }
-                  doc.animecoins -= dinheiro2;
-                  doc.save();
-                  let clonou = new discord.MessageEmbed()
+                  doc.animecoins -= dinheiro2
+                  doc.save()
+                  const clonou = new discord.MessageEmbed()
                     .setAuthor({
                       name: `» ${interaction.member.user.tag} clonou um cartão com ${dinheiro2} de ${transferido.user.tag}! Dinheiro transferido para o banco do utilizador!`,
-                      iconURL: "https://i.imgur.com/gWlUNds.png",
+                      iconURL: 'https://i.imgur.com/gWlUNds.png'
                     })
-                    .setImage("https://i.imgur.com/k1d7XkN.png")
-                    .setColor(client.cor);
-                  interaction.editReply({ content: null, embeds: [clonou] });
+                    .setImage('https://i.imgur.com/k1d7XkN.png')
+                    .setColor(client.cor)
+                  interaction.editReply({ content: null, embeds: [clonou] })
                 }
               }
-            );
-            fic.animecoins += dinheiro2;
-            fic.save();
-            fic.clonaCooldown = Date.now();
+            )
+            fic.animecoins += dinheiro2
+            fic.save()
+            fic.clonaCooldown = Date.now()
           }
         }
       }
-    );
-  },
-};
+    )
+  }
+}
