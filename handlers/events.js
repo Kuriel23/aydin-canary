@@ -7,7 +7,7 @@ module.exports = (client) => {
     try {
       const Event = require(`../events/${file}`)
       Event.event = Event.event || file.replace('.js', '')
-      client.on(file.split('.')[0], (...args) => Event.execute(client, ...args))
+      client.on(file.split('.')[0], (...args) => Event(client, ...args))
       client.logger.log(`> ➕ • Evento ${file.replace('.js', '')} foram carregados.`, 'event')
     } catch (err) {
       client.logger.log('Erro enquanto carregava', 'warn')
