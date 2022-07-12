@@ -20,12 +20,13 @@ module.exports = {
       const searchResults = await wiki.summary(termo)
       const wikiEmbed = new discord.MessageEmbed()
         .setAuthor({
-          name: '» ' + searchResults.titles.normalized,
-          iconURL: 'https://i.imgur.com/BuQfAZd.png'
+          name: "» " + searchResults.titles.normalized,
+          iconURL: "https://i.imgur.com/BuQfAZd.png",
         })
         .setDescription(searchResults.extract)
         .setColor(client.cor)
-        .setFooter({ text: searchResults.content_urls.desktop.page })
+        .setImage("https://i.imgur.com/G2vCO4g.png")
+        .setFooter({ text: searchResults.content_urls.desktop.page });
       interaction.reply({ embeds: [wikiEmbed] })
     } catch (err) {
       return interaction.reply({

@@ -42,10 +42,11 @@ module.exports = {
         return interaction.reply({ embeds: [cooldown] })
       }
       function embed (title, icon) {
-        return new discord.MessageEmbed()
+        let emb = new discord.MessageEmbed()
           .setAuthor({ name: title, iconURL: icon })
           .setImage('https://i.imgur.com/KAkCLP9.png')
           .setColor(client.cor)
+        return emb
       }
       if (delayTime - (Date.now() - doc.crimeCooldown) < 0) {
         if (result === 'Prisão') {
@@ -149,7 +150,7 @@ module.exports = {
 
               schedule.scheduleJob(date, function () {
                 const webhookClient = new discord.WebhookClient({
-                  url: 'https://discord.com/api/webhooks/972829188421738516/z3cd69zBbUZ0be0t3soB_9MjRdR2wo_KsfZswdsRCRts-BdAUm8ZsN2cMzZIfLwuhlQk'
+                  url: process.env.webhook
                 })
                 webhookClient.send({
                   content: `**[ATUALIZAÇÃO]** | Eaí, tá na hora de fazer uns crimes. ||<@${interaction.member.id}>||`,

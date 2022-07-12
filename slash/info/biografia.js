@@ -25,10 +25,11 @@ module.exports = {
         doc.save()
         const emb = new discord.MessageEmbed()
           .setAuthor({
-            name: '» Defini a sua Biografia com sucesso!',
-            iconURL: client.ok
+            name: "» Defini a sua Biografia com sucesso!",
+            iconURL: client.ok,
           })
-          .setColor(client.cor)
+          .setImage("https://i.imgur.com/BONwNfg.png")
+          .setColor(client.cor);
         interaction.reply({ embeds: [emb] })
       }
     })

@@ -81,35 +81,36 @@ module.exports = {
           } else {
             const ConfigEmbed = new discord.MessageEmbed()
               .setAuthor({
-                name: '» Configurações de Seu Perfil',
-                iconURL: 'https://i.imgur.com/xWD9Mpk.png'
+                name: "» Configurações de Seu Perfil",
+                iconURL: "https://i.imgur.com/xWD9Mpk.png",
               })
               .addField(
-                '» Notificar Rep:',
-                doc.config.notificarep === true ? 'Ativado' : 'Desativado',
+                "» Notificar Rep:",
+                doc.config.notificarep === true ? "Ativado" : "Desativado",
                 true
               )
               .addField(
-                '» Notificar Daily:',
-                doc.config.notificardaily === true ? 'Ativado' : 'Desativado',
+                "» Notificar Daily:",
+                doc.config.notificardaily === true ? "Ativado" : "Desativado",
                 true
               )
               .addField(
-                '» Notificar Trabalhar:',
-                doc.config.notificarwork === true ? 'Ativado' : 'Desativado',
+                "» Notificar Trabalhar:",
+                doc.config.notificarwork === true ? "Ativado" : "Desativado",
                 true
               )
               .addField(
-                '» Notificar Roubar:',
-                doc.config.notificarob === true ? 'Ativado' : 'Desativado',
+                "» Notificar Roubar:",
+                doc.config.notificarob === true ? "Ativado" : "Desativado",
                 true
               )
               .addField(
-                '» Notificar Crime:',
-                doc.config.notificarcrime === true ? 'Ativado' : 'Desativado',
+                "» Notificar Crime:",
+                doc.config.notificarcrime === true ? "Ativado" : "Desativado",
                 true
               )
-              .setColor(client.cor)
+              .setImage("https://i.imgur.com/7Ilb5yJ.png")
+              .setColor(client.cor);
             interaction.reply({ content: null, embeds: [ConfigEmbed] })
           }
         }

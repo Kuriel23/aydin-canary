@@ -19,16 +19,12 @@ module.exports = {
       .get(`https://significado.herokuapp.com/meanings/${encodeURI(palavra)}`)
     const DicioEmbed = new discord.MessageEmbed()
       .setAuthor({
-        name:
-              '» Significado de ' +
-              palavra +
-              ' (' +
-              body[0].class +
-              ')',
-        iconURL: 'https://i.imgur.com/8B689Cs.png'
+        name: "» Significado de " + palavra + " (" + body[0].class + ")",
+        iconURL: "https://i.imgur.com/8B689Cs.png",
       })
-      .setDescription(body[0].meanings.join('\n'))
-      .setColor(client.cor)
+      .setImage("https://i.imgur.com/nlRCwre.png")
+      .setDescription(body[0].meanings.join("\n"))
+      .setColor(client.cor);
     interaction.reply({ embeds: [DicioEmbed] })
   }
 }

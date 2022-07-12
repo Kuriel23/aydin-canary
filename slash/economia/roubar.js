@@ -192,8 +192,7 @@ module.exports = {
 
                   schedule.scheduleJob(date, function () {
                     const webhookClient = new discord.WebhookClient({
-                      url: 'https://discord.com/api/webhooks/972829188421738516/z3cd69zBbUZ0be0t3soB_9MjRdR2wo_KsfZswdsRCRts-BdAUm8ZsN2cMzZIfLwuhlQk'
-                    })
+                      url: process.env.webhook                    })
                     webhookClient.send({
                       content: `**[ATUALIZAÇÃO]** | Eaí novato, bora assaltar algo ae namoral. ||<@${interaction.member.id}>||`,
                       username: 'Kazuma Satou',

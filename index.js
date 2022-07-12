@@ -20,7 +20,7 @@ const client = new discord.Client({
   }
 })
 
-client.db = require('./database.js')
+client.db = require('./database.js');
 client.cor = '#27AE60'
 client.games = 'https://animesonlinegames.com/'
 client.orion = 'https://animesorionvip.com/'
@@ -49,6 +49,8 @@ const Levels = require('discord-xp')
 Levels.setURL(
   `mongodb+srv://${process.env.db}:${process.env.db}@cluster0-ovyzb.gcp.mongodb.net/test?retryWrites=true&w=majority`
 )
+
+require("./server")(client);
 
 client.eventoativo = false // true para ativar, false para desativar
 client.quantiacandy = 5 // Quantia que é doada

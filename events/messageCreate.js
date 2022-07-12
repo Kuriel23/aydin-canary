@@ -3,6 +3,21 @@ const Levels = require("discord-xp");
 const { Webhook } = require("simple-discord-webhooks");
 
 module.exports = async (client, message) => {
+  if (message.author.bot) return 0;
+  if (message.content.startsWith("a?")) {
+    let embedaviso = new discord.MessageEmbed()
+      .setTitle("Slash commands e o fim dos prefixos")
+      .setDescription(
+        'Felizmente ou infelizmente estaremos abandonando prefixos para um sistema que será e é melhor chamado slash commands, o mesmo pertence ao Discord e têm-se o direito de usar todos os comandos começando sua mensagem com `/`.\n\nIsso permitiu-nos começar a realizar novos sonhos, ideias e projetos. Sendo assim possível melhorar a experiência ao utilizador e ao servidor, dando também a oportunidade de melhorar sistemas que tinham um sistema bastante "sujo", além disso foi feita uma grande otimização em vários dos comandos como perfil, coinflip, entre outros.\n\nÉ claro que slash commands não consegue agradar todos porém no futuro bots verificados são obrigados a usar slash commands, e este apesar de não ser verificado quis fazer a mudança. Utilizadores de mobile ainda poderão relatar vários bugs dentro deste sistema, mas o Discord está empenhado em melhorar este sistema ainda junto a fazer outros melhores.'
+      )
+      .setColor(client.cor)
+      .setImage(
+        "https://support.discord.com/hc/article_attachments/360099287734/2020_Blog_Slash_Commands_BlogHDR__1_.png"
+      )
+      .setTimestamp();
+    message.reply({ embeds: [embedaviso] })
+  }
+
   if (message.channel.type === "news") {
     message.crosspost();
   }
@@ -12,7 +27,7 @@ module.exports = async (client, message) => {
     message.content.includes("HTTP://") ||
     message.content.includes("Http://")
   ) {
-    if (message.member.hasPermission("BAN_MEMBERS")) return 0;
+    if (message.member.permissions.has("BAN_MEMBERS")) return 0;
     message.delete();
     message.reply({
       content:
@@ -40,7 +55,7 @@ module.exports = async (client, message) => {
     );
 
   if (convite === true) {
-    if (message.member.hasPermission("BAN_MEMBERS")) return 0;
+    if (message.member.permissions.has("BAN_MEMBERS")) return 0;
     const inviteCodeRegexResult =
       /((discord|invite)\.(gg|io|me|plus|link|io|gg)|discordapp\.com\/invite)\/?([a-zA-Z0-9-]{2,32})/gi.exec(
         message.content
@@ -110,7 +125,7 @@ module.exports = async (client, message) => {
   }
 
   if (message.channel.id === "900459492922249226") {
-    if (message.member.hasPermission("BAN_MEMBERS")) return 0;
+    if (message.member.permissions.has("BAN_MEMBERS")) return 0;
     if (!message.content.includes("https://")) {
       return message
         .reply({
@@ -574,8 +589,6 @@ module.exports = async (client, message) => {
       message.reply(MembroUpouEmbed);
     }
   }
-
-  if (message.author.bot) return 0;
 
   if (!message.member.permissions.has("KICK_MEMBERS")) return;
 

@@ -7,13 +7,14 @@ module.exports = {
   run: async (interaction, client) => {
     const Faq = new discord.MessageEmbed()
       .setAuthor({
-        name: 'Questões Frequentemente Perguntadas',
-        iconURL: 'https://i.imgur.com/3fmE1vY.png'
+        name: "Questões Frequentemente Perguntadas",
+        iconURL: "https://i.imgur.com/3fmE1vY.png",
       })
       .setDescription(
-        'Clique [aqui](https://animesgamesbot.ml/extras) para ajuda autónoma em suas questões.'
+        "Clique [aqui](https://animesgamesbot.ml/extras) para ajuda autónoma em suas questões."
       )
       .setColor(client.cor)
+      .setImage("https://i.imgur.com/d8ImuKX.png");
     interaction.reply({ embeds: [Faq] })
   }
 }
